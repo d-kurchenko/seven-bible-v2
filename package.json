@@ -1,0 +1,31 @@
+{
+  "name": "seven-bible",
+  "version": "1.0.0",
+  "description": "Best web/desktop app to study Bible",
+  "author": "pvmnsd <pvmnsd@gmail.com>",
+  "private": "true",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev:web": "esno scripts/dev.ts --web",
+    "dev:electron": "esno scripts/dev.ts --electron",
+    "lint": "esno scripts/lint.ts",
+    "build": "esno scripts/build.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.0",
+    "@types/shelljs": "^0.8.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "consola": "^3.2.3",
+    "eslint": "^8.42.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "esno": "^0.16.3",
+    "shelljs": "^0.8.5",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3"
+  }
+}
