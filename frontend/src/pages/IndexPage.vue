@@ -1,6 +1,6 @@
 <template>
   <QPage class="row items-center justify-evenly">
-    {{ `@${helloTitle}!dds` || '...' }}
+    {{ `${helloTitle || '...'}` }}
   </QPage>
 </template>
 
@@ -10,7 +10,7 @@ import { ref } from 'vue';
 const helloTitle = ref<string | null>(null);
 
 const getHello = async () => {
-  const res = await fetch(process.env.API_URL);
+  const res = await fetch(process.env.LOCAL_API_URL);
   helloTitle.value = await res.text();
 };
 

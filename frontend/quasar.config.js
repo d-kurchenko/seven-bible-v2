@@ -12,15 +12,15 @@
 const { configure } = require('quasar/wrappers');
 const path = require('path');
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function (ctx) {
   return {
     eslint: {
       // fix: true,
       // include: [],
       // exclude: [],
       // rawOptions: {},
-      warnings: true,
-      errors: true,
+      // warnings: true,
+      // errors: true,
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
@@ -69,12 +69,15 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      env: require('dotenv').config().parsed,
+      env: {
+        MODE: ctx.modeName,
+        ...require('dotenv').config().parsed,
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
       // polyfillModulePreload: true,
-      distDir: `dist-${process.env.PLATFORM}`,
+      // distDir: `dist`,
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
@@ -186,7 +189,7 @@ module.exports = configure(function (/* ctx */) {
 
       inspectPort: 5858,
 
-      bundler: 'packager', // 'packager' or 'builder'
+      bundler: 'builder', // 'packager' or 'builder'
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
@@ -203,7 +206,24 @@ module.exports = configure(function (/* ctx */) {
 
       builder: {
         // https://www.electron.build/configuration/configuration
-        appId: 'seven-bible',
+        appId: 'com.${name}',
+        productName: 'Seven Bible',
+        copyright: 'Copyright © 2023 ${author}',
+        asar: true,
+        extraResources: [{
+          from: './dist/server/',
+          to: 'server',
+          filter: ['**/*'],
+        }],
+        icon: './src-electron/icons/icon.png',
+        linux: {
+          category: 'Education',
+          target: ['AppImage'],
+        },
+        includeSubNodeModules: true,
+        directories: {
+          buildResources: 'dist/server',
+        },
       },
     },
 

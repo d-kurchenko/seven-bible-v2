@@ -1,6 +1,7 @@
 import consola from 'consola';
 import shell, { ShellString } from 'shelljs';
 import path from 'node:path';
+import { ChildProcess } from 'node:child_process';
 
 export const PackagePaths = {
   backendPath: path.resolve(__dirname, '../backend'),
@@ -24,4 +25,26 @@ export const assertShellString = (
     }
     shell.exit(1);
   }
+};
+
+interface ExecSyncReturnType {
+  code: number;
+  stdout: string;
+  stderr: string;
+  childProcess: ChildProcess;
+}
+export const execAsync = (command: string, options?: shell.ExecOptions) => {
+  return new Promise<ExecSyncReturnType>((resolve) => {
+    const childProcess = shell.exec(command, {
+      ...options,
+      async: true,
+    }, (code, stdout, stderr) => {
+      resolve({
+        code,
+        stdout,
+        stderr,
+        childProcess,
+      });
+    });
+  });
 };
