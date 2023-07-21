@@ -15,17 +15,16 @@ const build = async () => {
   ]);
   shell.cp('-R', 'dist/', distFolderName);
   shell.cp('-R', '.env', distFolderName);
-  shell.exec(`npx quasar clean`, {
-    cwd: PackagePaths.frontendPath,
-  });
-  fs.ensureDirSync(path.join(PackagePaths.frontendPath, 'dist'));
-  shell.mv(distFolderName, path.join(PackagePaths.frontendPath, 'dist/server'));
+
+  const extraResourcesDir = 'extra-resources';
+  fs.ensureDirSync(path.join(PackagePaths.frontendPath, extraResourcesDir));
+  shell.mv(distFolderName, path.join(PackagePaths.frontendPath, `${extraResourcesDir}/server`));
 
   shell.cd(PackagePaths.frontendPath);
   await Promise.all([
-    execAsync(`yarn build:spa`),
-    execAsync(`yarn build:electron`),
+    execAsync(`yarn build`),
   ]);
+  shell.rm('-rf', extraResourcesDir);
 };
 
 build();

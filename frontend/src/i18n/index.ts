@@ -1,5 +1,5 @@
-import enUS from './en-US';
+import { enUsMessages } from './en-US';
 
-export default {
-  'en-US': enUS,
+export const messages = {
+  'en-US': enUsMessages,
 };

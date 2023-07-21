@@ -10,7 +10,7 @@ export const electronApi = {
 guard({
   env: {
     NODE_ENV: 'production',
-    MODE: 'electron',
+    UI_ENV: 'electron',
   },
 }, () => {
   const { onServerReady, isServerReady } = useServerPreload();

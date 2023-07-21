@@ -1,0 +1,17 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "exclude": ["src/**/__tests__/*", "node_modules"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    // Debug info
+    "skipLibCheck": true,
+    "types": ["electron-vite/node"],
+    "paths": {
+      "app/*": ["*"],
+      "src/*": ["src/*"],
+      "src-electron/*": ["src-electron/*"],
+    }
+  }
+}

@@ -1,13 +1,23 @@
+// eslint-disable-next-line spaced-comment
+/// <reference types="vite/client" />
+
+type NodeEnv = 'development' | 'production';
+type UIEnv = 'electron' | 'spa';
+
+interface ImportMetaEnv {
+  readonly NODE_ENV: NodeEnv;
+  readonly UI_ENV: UIEnv;
+  readonly VITE_PORT: string;
+  readonly VITE_LOCAL_API_URL: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
 declare namespace NodeJS {
   interface ProcessEnv {
-    NODE_ENV: 'development' | 'production';
-    VUE_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;
-    VUE_ROUTER_BASE: string | undefined;
-    QUASAR_ELECTRON_PRELOAD: string;
-    APP_URL: string;
-    PORT: string;
-    LOCAL_API_URL: string;
-    REMOTE_API_URL: string;
-    MODE: 'spa' | 'electron';
+    ELECTRON_RENDERER_URL: string;
+    UI_ENV: UIEnv;
   }
 }

@@ -329,4 +329,6 @@ module.exports = {
       allow: ['warn', 'error'],
     },
   ],
+
+  '@typescript-eslint/no-empty-interface': 'off',
 };

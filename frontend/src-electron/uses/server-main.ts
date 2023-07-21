@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import { ElectronChanel } from '../electron-channel';
+import { ElectronChanel } from '../channel';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fork } from 'child_process';

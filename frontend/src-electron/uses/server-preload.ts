@@ -1,6 +1,6 @@
 import { createEventHook } from '@vueuse/core';
-import { IpcRendererEvent, ipcRenderer } from 'electron';
-import { ElectronChanel } from '../electron-channel';
+import { type IpcRendererEvent, ipcRenderer } from 'electron';
+import { ElectronChanel } from '../channel';
 
 export const useServerPreload = () => {
   let isServerReady = false;

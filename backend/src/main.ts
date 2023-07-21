@@ -7,7 +7,7 @@ const bootstrap = async () => {
   await app.listen(process.env.PORT);
   process.send?.('ready');
   // eslint-disable-next-line no-console
-  console.log(`Started at http://localhost:${process.env.PORT}`);
+  console.info(`Started at http://localhost:${process.env.PORT}`);
 };
 
 bootstrap();

@@ -8,7 +8,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="() => toggleLeftDrawerOpen()"
         />
 
         <QToolbarTitle>
@@ -36,18 +36,19 @@
     </QDrawer>
 
     <QPageContainer>
-      <RouterView />
+      <RouterView ref="routerViewEl" />
     </QPageContainer>
   </QLayout>
 </template>
 
 <script setup="false" lang="ts">
+import { useQuasar } from 'quasar';
+import { useToggle } from '@vueuse/core';
 import { ref } from 'vue';
 
-const leftDrawerOpen = ref(false);
+const [leftDrawerOpen, toggleLeftDrawerOpen] = useToggle(false);
+const $q = useQuasar();
 
-const toggleLeftDrawer = () => {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-};
+const routerViewEl = ref<HTMLDivElement | null>(null);
 
 </script>
