@@ -4,8 +4,8 @@ import path from 'node:path';
 import { ChildProcess } from 'node:child_process';
 
 export const PackagePaths = {
-  backendPath: path.resolve(__dirname, '../backend'),
-  frontendPath: path.resolve(__dirname, '../frontend'),
+  apiPath: path.resolve(__dirname, '../api'),
+  uiPath: path.resolve(__dirname, '../ui'),
 };
 
 export const combineCommands = (commands: string[]) => commands.join(' && ');

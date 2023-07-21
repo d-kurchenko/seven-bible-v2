@@ -16,7 +16,7 @@ module.exports = {
   env: {
     node: true,
   },
-  ignorePatterns: ['.eslintrc.js', 'frontend', 'backend'],
+  ignorePatterns: ['.eslintrc.js', 'ui', 'api'],
   rules: {
     'node/no-unpublished-import': "off",
 

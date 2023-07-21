@@ -7,18 +7,18 @@ let shellString = shell.exec('yarn lint');
 assertShellString(shellString, 'Monorepo lint failed');
 consola.info('Monorepo checking ended\n');
 
-consola.start('Backend checking started');
+consola.start('API checking started');
 shellString = shell.exec('yarn run full-check', {
-  cwd: PackagePaths.backendPath,
+  cwd: PackagePaths.apiPath,
 });
-assertShellString(shellString, 'Backend checking failed');
-consola.info('Backend checking ended\n');
+assertShellString(shellString, 'API checking failed');
+consola.info('API checking ended\n');
 
-consola.start('Frontend checking started');
+consola.start('UI checking started');
 shellString = shell.exec('yarn run full-check', {
-  cwd: PackagePaths.frontendPath,
+  cwd: PackagePaths.uiPath,
 });
-assertShellString(shellString, 'Frontend checking failed');
-consola.info('Frontend checking ended\n');
+assertShellString(shellString, 'UI checking failed');
+consola.info('UI checking ended\n');
 
 consola.success('Success checking');

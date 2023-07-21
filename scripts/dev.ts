@@ -3,15 +3,15 @@ import { PackagePaths } from './tools';
 
 const isElectron = process.argv.includes('--electron');
 
-const backendProcess = shell.exec(`yarn start:dev`, {
+const apiProcess = shell.exec(`yarn start:dev`, {
   async: true,
-  cwd: PackagePaths.backendPath,
+  cwd: PackagePaths.apiPath,
 });
-backendProcess.once('close', () => shell.exit());
+apiProcess.once('close', () => shell.exit());
 
 const command = isElectron ? 'yarn dev:electron' : 'yarn dev:spa';
-const frontendProcess = shell.exec(command, {
+const uiProcess = shell.exec(command, {
   async: true,
-  cwd: PackagePaths.frontendPath,
+  cwd: PackagePaths.uiPath,
 });
-frontendProcess.once('close', () => shell.exit());
+uiProcess.once('close', () => shell.exit());
