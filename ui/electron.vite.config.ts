@@ -74,6 +74,7 @@ const getRendererConfig: UserConfigExport = (config) => {
   return {
     ...mergeConfig({
       root: '.',
+      envPrefix: [EnvPrefix.ALL, EnvPrefix.RENDERER],
       plugins: [
         vue({
           template: {
@@ -99,7 +100,6 @@ export default defineConfig((config) => {
 
   return {
     renderer: mergeConfig({
-      envPrefix: [EnvPrefix.ALL, EnvPrefix.RENDERER],
       build: {
         rollupOptions: {
           input: {

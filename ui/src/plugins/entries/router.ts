@@ -1,4 +1,4 @@
-import { definePlugin } from 'app/src/wrappers/vue/plugin';
+import { definePlugin } from 'src/wrappers/vue/plugin';
 import { router } from 'src/router';
 
 export const routerPlugin = definePlugin({

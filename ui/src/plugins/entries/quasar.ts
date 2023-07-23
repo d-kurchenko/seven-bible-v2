@@ -1,4 +1,4 @@
-import { definePlugin } from 'app/src/wrappers/vue/plugin';
+import { definePlugin } from 'src/wrappers/vue/plugin';
 
 import { Quasar } from 'quasar';
 import '@quasar/extras/roboto-font/roboto-font.css';

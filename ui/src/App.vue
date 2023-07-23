@@ -43,24 +43,6 @@ guard({
   }
 });
 
-guard({
-  env: {
-    MODE: ['spa', 'electron'],
-    NODE_ENV: 'development',
-  },
-}, () => {
-  toggleLoading(true);
-  const interval = setInterval(async () => {
-    try {
-      const res = await fetch(import.meta.env.VITE_LOCAL_API_URL);
-      if (res.ok) {
-        clearInterval(interval);
-        toggleLoading(false);
-      }
-    } catch (_) { () => undefined; }
-  }, 100);
-});
-
 const route = useRoute();
 
 const layoutsMap: Record<Layout, unknown> = {

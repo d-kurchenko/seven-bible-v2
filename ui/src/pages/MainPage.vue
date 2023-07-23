@@ -1,12 +1,14 @@
 <template>
   <QPage class="t-grid t-place-items-center">
-    <p>{{ `${helloTitle || '...'}` }}</p>
-    <p>{{ messages.hello }}</p>
+    <pre>gql {{ `${JSON.stringify(result, null, 2) || '...'}` }}</pre>
+    <p>i18n {{ messages.hello }}</p>
   </QPage>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { useQuery } from '@vue/apollo-composable';
+import { GetBibleDocument } from 'src/gql/generated/graphql';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -14,12 +16,5 @@ const messages = computed(() => ({
   hello: t('greetings.hello'),
 }));
 
-const helloTitle = ref<string | null>(null);
-
-const getHello = async () => {
-  const res = await fetch(import.meta.env.VITE_LOCAL_API_URL);
-  helloTitle.value = await res.text();
-};
-
-getHello();
+const { result } = useQuery(GetBibleDocument);
 </script>

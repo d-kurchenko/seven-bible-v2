@@ -1,5 +1,5 @@
 import { createI18n } from 'vue-i18n';
-import { definePlugin } from 'app/src/wrappers/vue/plugin';
+import { definePlugin } from 'src/wrappers/vue/plugin';
 
 import type { MessageLanguages } from 'app/@types/i18n';
 import { messages } from 'src/i18n';

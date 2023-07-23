@@ -16,18 +16,26 @@
     "build-only:spa": "vite build",
     "build-only:electron": "electron-vite build && electron-builder",
     "full-check": "run-s lint type-check",
-    "build": "run-s build-only:spa build-only:electron"
+    "build": "run-s build-only:spa build-only:electron",
+    "codegen": "graphql-codegen --config src/gql/codegen.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.17",
     "@quasar/extras": "^1.16.5",
+    "@vue/apollo-composable": "^4.0.0-beta.8",
     "@vueuse/core": "^10.2.1",
     "dotenv": "^16.3.1",
+    "graphql": "^16.7.1",
+    "graphql-tag": "^2.12.6",
     "quasar": "^2.12.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.3.0-beta.24",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "4.0.1",
+    "@graphql-codegen/client-preset": "^4.0.1",
+    "@graphql-codegen/typescript-apollo-client-helpers": "^2.2.6",
     "@quasar/vite-plugin": "^1.4.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node18": "^2.0.1",
@@ -45,7 +53,7 @@
     "postcss": "^8.4.26",
     "tailwindcss": "^3.3.3",
     "type-fest": "^3.13.0",
-    "typescript": "~5.0.4",
+    "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vite-plugin-electron": "^0.12.0",
     "vue-tsc": "^1.6.5"

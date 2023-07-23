@@ -1,5 +1,8 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    PORT: string;
+    PORT: number;
+    HOST: string;
+    UI_HOST: string;
+    NODE_ENV: 'development' | 'production';
   }
 }

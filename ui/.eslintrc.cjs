@@ -29,6 +29,7 @@ module.exports = {
     '/dist',
     'out',
     'node_modules',
+    'src/gql/generated',
   ],
   rules: {
     // This rule require to use typescript in the application for the lang attribute of block elements.

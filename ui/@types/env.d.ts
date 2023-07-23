@@ -9,6 +9,7 @@ interface ImportMetaEnv {
   readonly UI_ENV: UIEnv;
   readonly VITE_PORT: string;
   readonly VITE_LOCAL_API_URL: string;
+  readonly RENDERER_LOCAL_API_GQL: string;
 }
 
 interface ImportMeta {

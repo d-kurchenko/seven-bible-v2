@@ -1,6 +1,6 @@
-import { defineRouteEntities } from 'app/src/wrappers/vue/router';
+import { defineRouteEntities } from 'src/wrappers/vue/router';
 
-import { mainRouteEntity } from './entities/main';
+import { mainRouteEntity } from './entries/main';
 
 export const routes =  defineRouteEntities([
   mainRouteEntity,

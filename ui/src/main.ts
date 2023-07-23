@@ -1,4 +1,4 @@
-import { createApp } from 'app/src/wrappers/vue/app';
+import { createApp } from 'src/wrappers/vue/app';
 import App from './App.vue';
 
 import { vuePlugins } from 'src/plugins';
