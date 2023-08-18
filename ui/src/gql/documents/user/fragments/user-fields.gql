@@ -1,0 +1,7 @@
+fragment UserFields on User {
+  id
+  username
+  createdAt
+  lastSeen
+  status
+}

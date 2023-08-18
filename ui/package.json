@@ -37,18 +37,15 @@
     "@graphql-codegen/client-preset": "^4.0.1",
     "@graphql-codegen/typescript-apollo-client-helpers": "^2.2.6",
     "@quasar/vite-plugin": "^1.4.1",
-    "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "^18.16.17",
     "@vitejs/plugin-vue": "^4.2.3",
-    "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/tsconfig": "^0.4.0",
     "autoprefixer": "^10.4.14",
     "electron": "^25.3.0",
     "electron-builder": "^24.4.0",
     "electron-vite": "^1.0.25",
     "eslint": "^8.39.0",
-    "eslint-plugin-vue": "^9.11.0",
     "npm-run-all": "3",
     "postcss": "^8.4.26",
     "tailwindcss": "^3.3.3",
@@ -58,13 +55,8 @@
     "vite-plugin-electron": "^0.12.0",
     "vue-tsc": "^1.6.5"
   },
-  "keywords": [
-    "bible",
-    "my-bible",
-    "seven-bible"
-  ],
   "engines": {
-    "node": "^16 || ^18",
+    "node": "^18",
     "yarn": ">= 1.21.1"
   }
 }

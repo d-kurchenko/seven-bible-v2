@@ -11,7 +11,7 @@ const build = async () => {
 
   await Promise.all([
     execAsync(`yarn build`),
-    execAsync(`yarn --prod --modules-folder ${distFolderName}/node_modules`),
+    execAsync(`PATH="$PATH:node_modules/.bin" yarn --prod --modules-folder ${distFolderName}/node_modules --ignore-optional`),
   ]);
   shell.cp('-R', 'dist/', distFolderName);
   shell.cp('-R', '.env', distFolderName);

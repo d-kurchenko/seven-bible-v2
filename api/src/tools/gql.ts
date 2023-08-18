@@ -3,5 +3,4 @@ export interface BaseGraphQLContext {
   connectionParams?: Record<string, unknown>;
 }
 
-export const createGraphQLContext = <T extends BaseGraphQLContext = BaseGraphQLContext>(ctx: T) => ctx;
-
+export const createGraphQLContext = <T extends BaseGraphQLContext = BaseGraphQLContext>(context: T) => context;

@@ -1,6 +1,6 @@
 import shell from 'shelljs';
 import { assertShellString, PackagePaths } from './tools';
-import consola from 'consola';
+import { consola } from 'consola';
 
 consola.start('Monorepo checking started');
 let shellString = shell.exec('yarn lint');

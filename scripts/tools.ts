@@ -1,4 +1,4 @@
-import consola from 'consola';
+import { consola } from 'consola';
 import shell, { ShellString } from 'shelljs';
 import path from 'node:path';
 import { ChildProcess } from 'node:child_process';
