@@ -32,8 +32,7 @@ const createWindow = () => {
     height: 600,
     useContentSize: true,
     webPreferences: {
-      // devTools: !app.isPackaged,
-      devTools: true,
+      devTools: !app.isPackaged,
       preload: path.join(__dirname, '../preload/index.js'),
     },
   });
