@@ -1,4 +1,4 @@
-import { definePlugins } from '../wrappers/vue/plugin';
+import { definePlugins } from 'src/shared/helpers/plugin';
 
 import { routerPlugin } from './entries/router';
 import { apolloPlugin } from './entries/apollo';

@@ -1,4 +1,4 @@
-import { definePlugin } from 'src/wrappers/vue/plugin';
+import { definePlugin } from 'src/shared/helpers/plugin';
 import {
   ApolloClient, createHttpLink, InMemoryCache, from,
 } from '@apollo/client/core';
@@ -6,7 +6,7 @@ import { DefaultApolloClient } from '@vue/apollo-composable';
 // import { RetryLink } from '@apollo/client/link/retry';
 import { onError } from '@apollo/client/link/error';
 import { createOperation } from '@apollo/client/link/utils';
-import { RefreshTokensDocument } from 'src/gql/generated/graphql';
+import { RefreshTokensDocument } from 'src/shared/gql/generated/graphql';
 
 const httpLink = createHttpLink({
   uri: import.meta.env.RENDERER_LOCAL_API_GQL,

@@ -1,4 +1,4 @@
-import { defineRouteEntity } from 'src/wrappers/vue/router';
+import { defineRouteEntity } from 'src/shared/helpers/router';
 
 export const mainRouteEntity = defineRouteEntity({
   path: '/',

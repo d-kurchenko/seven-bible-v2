@@ -1,9 +1,9 @@
-import { createApp } from 'src/wrappers/vue/app';
-import App from './App.vue';
+import { createApp } from 'src/shared/wrappers/vue/app';
+import App from 'src/app/App.vue';
 
-import { vuePlugins } from 'src/plugins';
+import { vuePlugins } from 'src/app/plugins';
 
-import './styles/style.css';
+import 'src/app/styles/style.css';
 
 const app = createApp(App);
 

@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import MainLayout from 'src/layouts/MainLayout.vue';
-import EmptyLayout from 'src/layouts/EmptyLayout.vue';
+import MainLayout from 'src/shared/layouts/MainLayout.vue';
+import EmptyLayout from 'src/shared/layouts/EmptyLayout.vue';
 
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';

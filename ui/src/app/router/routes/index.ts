@@ -1,4 +1,4 @@
-import { defineRouteEntities } from 'src/wrappers/vue/router';
+import { defineRouteEntities } from 'src/shared/helpers/router';
 
 import { mainRouteEntity } from './entries/main';
 

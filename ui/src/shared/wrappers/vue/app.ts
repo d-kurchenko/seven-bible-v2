@@ -1,5 +1,5 @@
 import { createApp as createAppVue, type Plugin } from 'vue';
-import { registerPlugins } from './plugin';
+import { registerPlugins } from 'src/shared/helpers/plugin';
 
 type CreateAppParameters = Parameters<typeof createAppVue>
 

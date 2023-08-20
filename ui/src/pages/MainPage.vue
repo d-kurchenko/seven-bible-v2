@@ -111,7 +111,7 @@
 import { useMutation, useQuery } from '@vue/apollo-composable';
 import {
   MeDocument, SignInDocument, SignOutDocument, type SignInInput, SignUpDocument, type SignUpInput,
-} from 'src/gql/generated/graphql';
+} from 'src/shared/gql';
 import { computed, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -139,3 +139,4 @@ onSignIn(() => fetchMe());
 onSignUp(() => fetchMe());
 onSignOut(() => resultMe.value = undefined);
 </script>
+src/shared/gql/generated/graphql
