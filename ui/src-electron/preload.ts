@@ -1,6 +1,7 @@
 import { contextBridge } from 'electron';
 import { useServerPreload } from './uses/server-preload';
 import { guard } from 'app/shared/tools/guard';
+import { IsKey } from 'app/shared/types';
 
 export const electronApi = {
   onServerReady: undefined as undefined | ReturnType<typeof useServerPreload>['onServerReady'],
@@ -8,10 +9,7 @@ export const electronApi = {
 };
 
 guard({
-  env: {
-    NODE_ENV: 'production',
-    UI_ENV: 'electron',
-  },
+  is: [IsKey.PRODUCTION, IsKey.ELECTRON],
 }, () => {
   const { onServerReady, isServerReady } = useServerPreload();
 

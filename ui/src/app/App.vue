@@ -26,16 +26,13 @@ import type { Layout } from 'app/@types/router-meta';
 import { useToggle } from '@vueuse/core';
 import { guard } from 'app/shared/tools/guard';
 import { is } from 'app/shared/tools/is';
+import { IsKey } from 'app/shared/types';
 
-const [isLoading, toggleLoading] = useToggle(is.electron && is.prod);
+const [isLoading, toggleLoading] = useToggle(is.electron && is.production);
 
 guard({
-  env: {
-    UI_ENV: 'electron',
-    NODE_ENV: 'production',
-  },
+  is: [IsKey.ELECTRON, IsKey.PRODUCTION],
 }, () => {
-  ('quard ui');
   const isServerStarted = Boolean(window.electron.isServerReady?.());
   toggleLoading(!isServerStarted);
   if (isLoading.value) {

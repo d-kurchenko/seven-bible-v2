@@ -14,11 +14,9 @@ import {
 } from 'electron-vite';
 import vue from '@vitejs/plugin-vue';
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
+import { UIEnv, type NodeEnv } from './shared/types';
 
 enum EnvPrefix {
-  MAIN = 'MAIN_VITE',
-  PRELOAD = 'PRELOAD_',
-  RENDERER = 'RENDERER_',
   ALL = 'VITE_',
 }
 
@@ -74,11 +72,15 @@ const getRendererConfig: UserConfigExport = (config) => {
   return {
     ...mergeConfig({
       root: '.',
-      envPrefix: [EnvPrefix.ALL, EnvPrefix.RENDERER],
+      envPrefix: [EnvPrefix.ALL],
       plugins: [
         vue({
           template: {
             transformAssetUrls,
+          },
+          script: {
+            propsDestructure: true,
+            defineModel: true,
           },
         }),
         quasar({
@@ -96,7 +98,7 @@ const getRendererConfig: UserConfigExport = (config) => {
 export const rendererDefineConfig = defineViteConfig(getRendererConfig);
 
 export default defineConfig((config) => {
-  process.env.UI_ENV = 'electron';
+  process.env.UI_ENV = UIEnv.ELECTRON;
 
   return {
     renderer: mergeConfig({
@@ -113,7 +115,7 @@ export default defineConfig((config) => {
       return {
         ...mergeConfig({
           root: '.',
-          envPrefix: [EnvPrefix.ALL, EnvPrefix.MAIN],
+          envPrefix: [EnvPrefix.ALL],
           build: {
             rollupOptions: {
               input: {
@@ -127,7 +129,7 @@ export default defineConfig((config) => {
 
     preload: defineViteConfig((config) => {
       return mergeConfig({
-        envPrefix: [EnvPrefix.ALL, EnvPrefix.PRELOAD],
+        envPrefix: [EnvPrefix.ALL],
         build: {
           rollupOptions: {
             input: {

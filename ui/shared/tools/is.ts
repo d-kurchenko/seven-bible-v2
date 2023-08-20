@@ -1,6 +1,11 @@
-export const is = {
-  electron: import.meta.env.UI_ENV === 'electron',
-  spa: import.meta.env.UI_ENV === 'spa',
-  prod: import.meta.env.NODE_ENV === 'production',
-  dev: import.meta.env.NODE_ENV === 'development',
+import { appConfig } from '../config';
+import {
+  NodeEnv, UIEnv, type Is,
+} from '../types';
+
+export const is: Is = {
+  electron: appConfig.uiEnv === UIEnv.ELECTRON,
+  spa: appConfig.uiEnv === UIEnv.SPA,
+  production: appConfig.nodeEnv === NodeEnv.PRODUCTION,
+  development: appConfig.nodeEnv === NodeEnv.DEVELOPMENT,
 };

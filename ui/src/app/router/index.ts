@@ -5,10 +5,11 @@ import {
 } from 'vue-router';
 import { routes } from './routes';
 import { is } from 'app/shared/tools/is';
+import { appConfig } from 'app/shared/config';
 
 export const router = createRouter({
   history: (is.electron ? createWebHashHistory : createWebHistory)(
-    import.meta.env.BASE_URL,
+    appConfig.baseUrl,
   ),
   routes,
 });

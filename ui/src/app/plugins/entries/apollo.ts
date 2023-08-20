@@ -7,9 +7,10 @@ import { DefaultApolloClient } from '@vue/apollo-composable';
 import { onError } from '@apollo/client/link/error';
 import { createOperation } from '@apollo/client/link/utils';
 import { RefreshTokensDocument } from 'src/shared/gql/generated/graphql';
+import { appConfig } from 'app/shared/config';
 
 const httpLink = createHttpLink({
-  uri: import.meta.env.RENDERER_LOCAL_API_GQL,
+  uri: appConfig.localApiGql,
   credentials: 'include',
 });
 // const retryLink = new RetryLink();

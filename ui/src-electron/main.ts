@@ -8,6 +8,7 @@ import { useServerMain } from './uses/server-main';
 import { ElectronChanel } from './channel';
 import { guard } from 'app/shared/tools/guard';
 import type { ChildProcess } from 'child_process';
+import { IsKey } from 'app/shared/types';
 
 // Needed in case process is undefined under Linux
 const platform = process.platform || os.platform();
@@ -57,10 +58,7 @@ const createWindow = () => {
 
 let serverProcess: undefined | ChildProcess;
 guard({
-  env: {
-    NODE_ENV: 'production',
-    UI_ENV: 'electron',
-  },
+  is: [IsKey.PRODUCTION, IsKey.ELECTRON],
 }, () => {
   const serverDir = path.join(process.resourcesPath, 'server');
   const { serverProcess: _serverProcess, onServerReady } = useServerMain(serverDir);
